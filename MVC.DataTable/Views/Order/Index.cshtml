@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVC.DataTable.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<div>
+    @Html.DropDownList("Order",null, new { @id = "customerID" })
+</div>
+<br/>
+<div id="Load">
+    
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        
+        var customerID = $('#customerID').val();
+       
+        $('#Load').load('@Url.Action("LoadOrders", "Order")?custId=' + customerID);
+        $("#customerID").change(function () {
+            var value = $('#customerID').val();
+           
+            $.ajax({
+                type: 'POST',
+                data: {},
+                success: function () {
+                    $('#Load').load('@Url.Action("LoadOrders", "Order")?custId=' + value);
+                },
+                error: function () { alert(error); }
+            });
+        });
+       
+    });
+</script>
