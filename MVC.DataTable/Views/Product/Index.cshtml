@@ -52,10 +52,10 @@
             @*<th></th>*@
         </tr>
     </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
 
-    @foreach (var item in Model)
-    {
-        <tbody>
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductName)
@@ -85,12 +85,12 @@
                     @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
                 </td>
                 @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
-                </td>*@
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                    </td>*@
             </tr>
-        </tbody>
-    }
 
+        }
+    </tbody>
 </table>

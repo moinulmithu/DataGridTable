@@ -3,12 +3,25 @@
 <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
-
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#orderTable').DataTable();
     });
 </script>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('#orderTable').DataTable({
+            "ajax": {
+                "url": "Order/LoadOrders",
+                "type": "POST",
+                "data": {
+                    custId: "customerID"
+                }
+            }
+        });
+    });
+</script>*@
 
 
 <table class="orderTable" id="orderTable">
@@ -56,10 +69,10 @@
             @*<th></th>*@
         </tr>
     </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
 
-    @foreach (var item in Model)
-    {
-        <tbody>
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.OrderDate)
@@ -101,12 +114,13 @@
                     @Html.DisplayFor(modelItem => item.Shipper.CompanyName)
                 </td>
                 @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
-                </td>*@
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+                    </td>*@
             </tr>
-        </tbody>
 
-    }
+
+        }
+    </tbody>
 </table>

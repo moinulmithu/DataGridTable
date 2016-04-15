@@ -23,6 +23,12 @@ namespace MVC.DataTable.Controllers
             var orderList = db.Orders.Where(x => x.CustomerID == custId).ToList();
             return PartialView(orderList);
         }
+        //public JsonResult LoadOrders(string custId)
+        //{
+        //    var orderList = db.Orders.Where(x => x.CustomerID == custId).ToList();
+        //    //return PartialView(orderList);
+        //    return Json(orderList, JsonRequestBehavior.AllowGet);
+        //}
         // GET: Order/Details/5
         public ActionResult Details(int id)
         {

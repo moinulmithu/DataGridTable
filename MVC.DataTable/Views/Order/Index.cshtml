@@ -6,6 +6,8 @@
 
 <h2>Index</h2>
 <script src="~/Scripts/jquery-1.10.2.js"></script>
+@*<script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+<link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />*@
 
 <div>
     @Html.DropDownList("Order",null, new { @id = "customerID" })
@@ -31,6 +33,7 @@
                 data: {},
                 success: function () {
                     $('#Load').load('@Url.Action("LoadOrders", "Order")?custId=' + value);
+                    //$('#orderTable').DataTable();
                 },
                 error: function () { alert(error); }
             });

@@ -16,6 +16,11 @@ namespace MVC.DataTable.Controllers
             var productList = db.Products.ToList();
             return View(productList);
         }
+        //public JsonResult Index()
+        //{
+        //    var productList = db.Products.ToList();
+        //    return Json(productList, JsonRequestBehavior.AllowGet);
+        //}
 
         // GET: Product/Details/5
         public ActionResult Details(int id)
