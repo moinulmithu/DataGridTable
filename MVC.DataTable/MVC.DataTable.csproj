@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Models\CustomerDemographic.cs">
       <DependentUpon>NorthwindDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerSearchModel.cs" />
     <Compile Include="Models\DropdownVM.cs" />
     <Compile Include="Models\Employee.cs">
       <DependentUpon>NorthwindDBModel.tt</DependentUpon>
@@ -481,6 +483,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\LoadOrders.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
