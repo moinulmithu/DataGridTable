@@ -18,9 +18,9 @@
 @using (Html.BeginForm("Index","Customer",FormMethod.Get))
 {
     <p>
-        Name :@Html.TextBox("ContactName")<br/>
-        Country :@Html.TextBox("Country")<br />
-        City :@Html.TextBox("City")<br />
+        Name :@Html.TextBox("ContactName")<br/><br/>
+        Country :@Html.TextBox("Country")<br /><br />
+        City :@Html.TextBox("City")<br /><br />
         
         <input type="submit" value="Filter"  onclick="showTable()"/>
     </p>

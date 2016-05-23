@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var regions = ViewBag.Region;
+    var products = ViewBag.Products;
+    var categories = ViewBag.Category;
+}
+<br/>
+<table id="productDetail" class="table-bordered">
+    <tr>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Product Category
+        </th>
+        <th>
+            Product Description
+        </th>
+        <th>
+            Product Price
+        </th>
+    </tr>
+    <tr>
+        <td>
+           
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            
+        </td>
+        
+    </tr>
+</table>
+<br/>
+<hr/>
+Region :@Html.DropDownList("RegionId", new SelectList(regions, "RegionId", "RegionDescription"))<br/><br/>
+
+Category : @Html.DropDownList("CategoryID", new SelectList(categories, "CategoryID", "CategoryName"))<br /><br />
+
+Product: @Html.DropDownList("ProductID",new SelectList(products,"ProductID","ProductName"))
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+@*<script src="~/Scripts/libs.js"></script>*@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#CategoryID').change(function () {
+            var categoryId = $(this).val();
+            //var categoryId = ('#CategoryID').val();
+            GetProductByCategory(categoryId);
+
+        });
+        
+        function GetProductByCategory(categoryId) {
+            //alert('Came on function');
+            var product = $('#ProductID');
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetProductByCategory", "Region")?categoryId=' + categoryId,
+                //data: {},
+                success: function (data) {
+                    
+                    product.html('');
+                    $.each(data, function (id, option) {
+                        product.append($('<option></option>').val(option.Id).html(option.Name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(xhr.responseText);
+                    alert(thrownError);
+                }
+            });
+        }
+    });
+</script>
